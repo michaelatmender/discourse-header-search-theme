@@ -1,5 +1,5 @@
 align_right:
-  default: false
+  default: true
   type: bool
   description: "Align the header search on the right of the header"
 
