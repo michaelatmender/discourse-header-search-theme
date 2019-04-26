@@ -1,0 +1,339 @@
+// remove add topic on top level
+.navigation-categories.categories-list #create-topic {
+    display: none;
+}
+
+
+// wiki edit button
+.wiki .edit.create {
+    color: white;
+    background-color: #fe7a15;
+    padding: 10px 12px;
+    margin-top: -4px;
+}
+.wiki .edit.create:hover,
+.topic-meta-data .post-info a.wiki:hover {
+    background-color: #E56100;
+}
+.wiki .post-infos {
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+.topic-meta-data .post-info a.wiki  {
+    background-color: #fe7a15;
+    color: #ffffff !important;
+    padding: 10px 12px;
+    font-size: 1.1487em;
+    margin-right: 5px;
+}
+
+
+.wiki a.wiki:after {
+    content: "View history";
+    margin-left: 10px;
+}
+
+.wiki a.heatmap-high.wiki:after {
+    content: "Make an edit";
+    margin-left: 10px;
+}
+
+
+// test quality tag colors
+.discourse-tag.tag-build-tested.bullet:before {
+    background: yellow;
+}
+
+
+// Device or OS tag colors
+.discourse-tag[data-tag-name="raspberry-pi"].bullet:before,
+.discourse-tag[data-tag-name="raspberrypi-cm3"].bullet:before,
+.discourse-tag[data-tag-name="raspberry-pi-3"].bullet:before,
+.discourse-tag[data-tag-name="raspberry-pi"].bullet:before,
+.discourse-tag[data-tag-name="raspberry-pi-zero-wifi"].bullet:before,
+.discourse-tag[data-tag-name="raspbian"].bullet:before{
+    background: #C1204C;
+}
+
+.discourse-tag[data-tag-name="nvidia"].bullet:before{
+    background: #76B900;
+}
+
+.discourse-tag[data-tag-name="yocto"].bullet:before,
+.discourse-tag[data-tag-name="sumo"].bullet:before,
+.discourse-tag[data-tag-name="rocko"].bullet:before,
+.discourse-tag[data-tag-name="thud"].bullet:before{
+    background: #0098db;
+}
+
+.discourse-tag[data-tag-name="beaglebone"].bullet:before {
+    background: #A17728;
+}
+
+.discourse-tag[data-tag-name="sunxi"].bullet:before {
+    background: #000000;
+}
+
+
+.discourse-tag[data-tag-name="ubuntu"].bullet:before {
+    background: #E95420;
+}
+
+.discourse-tag[data-tag-name="debian"].bullet:before {
+    background: #DD1155;
+}
+
+.discourse-tag[data-tag-name="intel"].bullet:before,
+.discourse-tag[data-tag-name="x86"].bullet:before{
+    background: #0f7dc2;
+}
+
+.discourse-tag[data-tag-name="tinkerboard"].bullet:before{
+    background: #29327C;
+}
+
+.discourse-tag[data-tag-name="rockchip"].bullet:before{
+    background: #12468A;
+}
+
+.discourse-tag[data-tag-name="minnowboard"].bullet:before {
+    background: #98C749;
+}
+
+.discourse-tag[data-tag-name="orange-pi"].bullet:before {
+    background: #FDA931;
+}
+
+.discourse-tag[data-tag-name="nano-pi"].bullet:before,
+.discourse-tag[data-tag-name="nanopi"].bullet:before{
+    background: #1DACB1;
+}
+
+.discourse-tag[data-tag-name="nxp"].bullet:before,
+.discourse-tag[data-tag-name="imx7"].bullet:before{
+    background: #FFA701;
+}
+
+// A copy of the functions used to determine the background colour of the code block
+// https://github.com/discourse/discourse/blob/3dcad123f5a7cf0de3c4a57554a752b96a214943/app/assets/stylesheets/common/foundation/variables.scss
+@function brightness($color) {
+  @return ((red($color) * .299) + (green($color) * .587) + (blue($color) * .114));
+}
+
+@function dark-light-choose($light-theme-result, $dark-theme-result) {
+  @if brightness($primary) < brightness($secondary) {
+    @return $light-theme-result;
+  } @else {
+    @return $dark-theme-result;
+  }
+}
+
+// CSS for clipboard
+.bd-clipboard {
+  background-color: dark-light-choose(#f8f8f8, #333333);
+  display: block;
+  position: relative;
+  text-align: right;
+  text-align: end;
+  white-space: nowrap;
+}
+
+.bd-clipboard + pre {
+  margin-top: 0;
+}
+
+.btn-clipboard {
+  background-color: transparent;
+  border-radius: 2px;
+  color: dark-light-choose(#333333, #f8f8f8);
+  cursor: default;
+  display: inline-block;
+  font-size: .857142857em;
+  padding: 0.25em 0.4em;
+}
+
+.btn-clipboard:hover {
+  background-color: $tertiary;
+  color: $secondary;
+}
+
+
+// Search bar
+.d-header .title {
+  display: flex;
+}
+
+.d-header .header-buttons {
+  margin-top: .1em;
+}
+
+.header-search-enabled .search-header a, .header-search-enabled .search-header a:visited {
+  color: $tertiary;
+}
+
+.header-search-enabled #search-button {
+  display: none;
+}
+
+.header-search-enabled.align-right .contents {
+   display: flex;
+   justify-content: space-between;
+
+   &:before, &:after {
+     display: none;
+   }
+
+   .title {
+     flex: 1 1 auto;
+     justify-content: space-between;
+   }
+
+   .search-header {
+     align-self: flex-start;
+     margin: 15px 0 0 10px;
+   }
+
+   .search-input {
+     margin-right: 0;
+   }
+
+   .search-context {
+     padding-top: 5px;
+   }
+
+   .results {
+     right: 0;
+   }
+}
+
+.title .search-header {
+  width: 350px;
+  margin-left: 20px;
+  margin-top: 4px;
+  position: relative;
+  white-space: nowrap;
+
+  &.show-header-results {
+    box-shadow: 0 3px 5px -2px rgba(0, 0, 0, 0.5);
+    background-color: $secondary;
+  }
+
+  #search-term {
+    background-color: $secondary;
+    margin: 0;
+    width: 100%;
+  }
+
+  .searching .spinner {
+    display: none;
+  }
+
+  .search-icon {
+    float: right;
+    border: 1px solid mix($primary, $secondary);
+    border-left: none;
+    height: 32px;
+  }
+
+  .search-input {
+    overflow: hidden;
+    padding: 0;
+  }
+
+  .search-context {
+    padding: 0;
+    padding: 5px;
+
+    label {
+        float: left;
+    }
+  }
+
+  .results {
+    border-top: none;
+    width: 100%;
+    white-space: normal;
+
+    ul {
+      list-style-type: none;
+      margin: 0 5px 5px 5px;
+    }
+
+    .heading {
+      padding: 5px 0 5px 5px;
+
+      .filter {
+        padding: 0 5px;
+      }
+    }
+
+    .no-results {
+      padding: 5px;
+      text-align: center;
+    }
+
+    .search-link {
+      .badge-category-parent {
+        line-height: 0.8em;
+      }
+      .topic-title {
+        margin-right: 6px;
+      }
+
+      .topic-statuses {
+        float: none;
+        display: inline-block;
+        color: dark-light-choose(scale-color($primary, $lightness: 50%), scale-color($secondary, $lightness: 50%));
+        margin: 0;
+        .fa {
+          margin: 0;
+        }
+      }
+    }
+
+    li:not(.category):not(.heading) {
+      font-size: 0.929em;
+      line-height: 16px;
+
+      .fa {
+        font-size: inherit;
+      }
+
+      a {
+        display: block;
+        padding: 5px;
+        transition: all linear .15s;
+      }
+
+      &:hover a:not(.badge-notification) {
+        background-color: dark-light-diff($highlight, $secondary, 50%, -55%);
+      }
+
+      button {
+        margin-left: 5px;
+      }
+    }
+  }
+}
+
+
+.search-menu .search-input {
+    padding: 0;
+}
+
+.title .search-header {
+    margin-left: 40px;
+}
+
+// end search bar
+
+.ember-view.login-button,
+.ember-view.sign-up-button {
+    height: 35px;
+    vertical-align: bottom;
+}
+
+#login-buttons .btn-social {
+    padding-left: 8px;
+    padding-right: 8px;
+}
